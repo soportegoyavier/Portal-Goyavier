@@ -1,0 +1,191 @@
+:root { --r: 14px; }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+body { background: #1E1E1E; }
+
+.hidden { display: none !important; }
+
+/* ─────────────────────────────
+   PORTAL DE INICIO
+───────────────────────────── */
+#view-portal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-bg {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #1E1E1E 0%, #2B2B2B 50%, #222 100%);
+  z-index: 0;
+}
+
+.portal-bg::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.portal-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 520px;
+  animation: fadeUp 0.35s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.portal-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.portal-logo-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portal-title    { color: #fff; font-size: 26px; font-weight: 700; }
+.portal-subtitle { color: rgba(255,255,255,0.45); font-size: 14px; }
+
+.portal-cards { display: flex; flex-direction: column; gap: 14px; width: 100%; }
+
+.module-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r);
+  padding: 22px 24px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.22s, transform 0.2s, box-shadow 0.22s, border-color 0.22s;
+  width: 100%;
+}
+
+.module-card:hover {
+  background: rgba(255,255,255,0.11);
+  border-color: rgba(255,255,255,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.35);
+}
+
+.module-card:active { transform: translateY(-1px); }
+
+.module-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 21px;
+  flex-shrink: 0;
+}
+
+.module-card-body  { flex: 1; }
+.module-card-title { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+.module-card-desc  { color: rgba(255,255,255,0.42); font-size: 13px; line-height: 1.4; }
+
+.module-card-arrow {
+  color: rgba(255,255,255,0.25);
+  font-size: 14px;
+  flex-shrink: 0;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.module-card:hover .module-card-arrow {
+  color: rgba(255,255,255,0.65);
+  transform: translateX(5px);
+}
+
+.portal-footer {
+  color: rgba(255,255,255,0.25);
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ─────────────────────────────
+   VISTA MÓDULO (iframe)
+───────────────────────────── */
+#view-module {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.module-topbar {
+  height: 44px;
+  background: #2B2B2B;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+.topbar-title {
+  color: rgba(255,255,255,0.6);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+#module-frame {
+  flex: 1;
+  border: none;
+  width: 100%;
+}
