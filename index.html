@@ -10,60 +10,69 @@
 <body>
 
   <!-- ── VISTA: PORTAL DE INICIO ── -->
-  <div id="view-portal">
-    <div class="portal-bg"></div>
+  <div id="view-portal" role="main">
+    <div class="portal-bg" aria-hidden="true"></div>
     <div class="portal-content">
 
-      <div class="portal-header">
-        <div class="portal-logo-circle">G</div>
-        <h1 class="portal-title">Colegio Goyavier</h1>
+      <header class="portal-header">
+        <div class="portal-logo-wrap">
+          <img src="logo_goyavier.png" alt="Goyavier Colegio Campestre" class="portal-logo-img" />
+        </div>
         <p class="portal-subtitle">¿A qué sistema deseas ingresar?</p>
-      </div>
+      </header>
 
-      <div class="portal-cards">
+      <nav class="portal-cards" aria-label="Módulos del portal">
 
-        <a class="module-card" onclick="enterModule('Zaiko', 'https://zaikopro.netlify.app/')">
-          <div class="module-card-icon" style="background:#565656">
+        <button class="module-card" onclick="enterModule('Zaiko', 'https://zaikopro.netlify.app/')">
+          <div class="module-card-icon" style="background:#1575bc" aria-hidden="true">
             <i class="fa fa-boxes-stacked"></i>
           </div>
           <div class="module-card-body">
             <div class="module-card-title">Zaiko</div>
             <div class="module-card-desc">Gestión de inventario y activos institucionales</div>
           </div>
-          <i class="fa fa-arrow-right module-card-arrow"></i>
-        </a>
+          <i class="fa fa-arrow-right module-card-arrow" aria-hidden="true"></i>
+        </button>
 
-        <a class="module-card" onclick="enterModule('Paz y Salvo', 'https://pazysalvo.netlify.app/')">
-          <div class="module-card-icon" style="background:#6A886A">
+        <button class="module-card" onclick="enterModule('Paz y Salvo', 'https://pazysalvo.netlify.app/')">
+          <div class="module-card-icon" style="background:#5baee0" aria-hidden="true">
             <i class="fa fa-file-circle-check"></i>
           </div>
           <div class="module-card-body">
             <div class="module-card-title">Paz y Salvo</div>
             <div class="module-card-desc">Gestión de paz y salvos del personal</div>
           </div>
-          <i class="fa fa-arrow-right module-card-arrow"></i>
-        </a>
+          <i class="fa fa-arrow-right module-card-arrow" aria-hidden="true"></i>
+        </button>
 
-      </div>
+      </nav>
 
-      <div class="portal-footer">
-        <i class="fa fa-shield-halved"></i>
+      <footer class="portal-footer">
+        <i class="fa fa-shield-halved" aria-hidden="true"></i>
         Cada sistema tiene su propio acceso independiente
-      </div>
+      </footer>
 
     </div>
   </div>
 
   <!-- ── VISTA: MÓDULO EN IFRAME ── -->
-  <div id="view-module" class="hidden">
+  <div id="view-module" class="hidden" role="main" aria-label="Módulo activo">
     <div class="module-topbar">
-      <button class="back-btn" onclick="goPortal()">
-        <i class="fa fa-chevron-left"></i> Portal
+      <button class="back-btn" onclick="goPortal()" aria-label="Volver al portal">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i> Portal
       </button>
       <span class="topbar-title" id="module-label"></span>
-      <div></div>
+      <button class="newtab-btn" onclick="openNewTab()" title="Abrir en nueva pestaña" aria-label="Abrir en nueva pestaña">
+        <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
+      </button>
     </div>
-    <iframe id="module-frame" src="" allowfullscreen></iframe>
+
+    <div class="module-loading hidden" id="module-loading" role="status" aria-label="Cargando módulo">
+      <div class="loading-ring"></div>
+      <span>Cargando módulo…</span>
+    </div>
+
+    <iframe id="module-frame" src="" allowfullscreen title="Módulo" onload="onFrameLoad()"></iframe>
   </div>
 
   <script src="app.js"></script>
