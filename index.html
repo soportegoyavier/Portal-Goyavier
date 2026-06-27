@@ -34,7 +34,7 @@
           <i class="fa fa-arrow-right module-card-arrow" aria-hidden="true"></i>
         </button>
 
-        <button class="module-card" onclick="window.open('https://pazysalvo.netlify.app/', '_blank', 'noopener,noreferrer')">
+        <button class="module-card" onclick="enterModule('Paz y Salvo', 'https://pazysalvo.netlify.app/')">
           <div class="module-card-icon" style="background:#5baee0" aria-hidden="true">
             <i class="fa fa-file-circle-check"></i>
           </div>
@@ -72,7 +72,7 @@
       <span>Cargando módulo…</span>
     </div>
 
-    <iframe id="module-frame" src="" allowfullscreen title="Módulo" onload="onFrameLoad()"></iframe>
+    <iframe id="module-frame" src="" allowfullscreen title="Módulo" onload="if(window.onFrameLoad)onFrameLoad()"></iframe>
   </div>
 
   <script src="app.js"></script>
