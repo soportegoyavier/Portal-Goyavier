@@ -9,7 +9,7 @@ let _currentUrl = '';
   const rt   = hash.get('refresh_token');
   if (!at) return;
   try { history.replaceState(null, '', window.location.pathname); } catch (_) {}
-  const pysSrc = 'https://pazysalvo.netlify.app/#access_token=' + encodeURIComponent(at)
+  const pysSrc = 'https://pazysalvogoyavier.netlify.app/#access_token=' + encodeURIComponent(at)
     + (rt ? '&refresh_token=' + encodeURIComponent(rt) : '');
   function _relay() { enterModule('Paz y Salvo', pysSrc); }
   if (document.readyState === 'loading') {
@@ -19,7 +19,7 @@ let _currentUrl = '';
   }
 })();
 
-const _MODULOS_PERMITIDOS = ['pazysalvo.netlify.app', 'colegiogoyavier.phidias.co'];
+const _MODULOS_PERMITIDOS = ['pazysalvogoyavier.netlify.app', 'colegiogoyavier.phidias.co'];
 
 function enterModule(name, url) {
   try {
