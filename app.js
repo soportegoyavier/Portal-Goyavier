@@ -19,7 +19,7 @@ let _currentUrl = '';
   }
 })();
 
-const _MODULOS_PERMITIDOS = ['zaiko-pazsalvo.colegiogoyavier.edu.co', 'colegiogoyavier.phidias.co'];
+const _MODULOS_PERMITIDOS = ['zaiko-pazsalvo.colegiogoyavier.edu.co', 'colegiogoyavier.phidias.co', 'zaiko-inventario.colegiogoyavier.edu.co'];
 
 function enterModule(name, url) {
   try {
@@ -66,6 +66,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   document.getElementById('btn-pazsalvo').addEventListener('click', function () {
     enterModule('Paz y Salvo', 'https://zaiko-pazsalvo.colegiogoyavier.edu.co/');
+  });
+  document.getElementById('btn-zaiko').addEventListener('click', function () {
+    enterModule('Zaiko Inventario', 'https://zaiko-inventario.colegiogoyavier.edu.co/');
   });
   document.getElementById('btn-back').addEventListener('click', goPortal);
   document.getElementById('btn-newtab').addEventListener('click', openNewTab);
