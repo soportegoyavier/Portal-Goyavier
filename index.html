@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Portal Goyavier</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -23,8 +24,8 @@
 
       <nav class="portal-cards" aria-label="Módulos del portal">
 
-        <button class="module-card" onclick="window.open('https://colegiogoyavier.phidias.co/', '_blank', 'noopener,noreferrer')">
-          <div class="module-card-icon" style="background:#1575bc" aria-hidden="true">
+        <button class="module-card" id="btn-phidias">
+          <div class="module-card-icon icon-phidias" aria-hidden="true">
             <i class="fa fa-graduation-cap"></i>
           </div>
           <div class="module-card-body">
@@ -34,8 +35,8 @@
           <i class="fa fa-arrow-right module-card-arrow" aria-hidden="true"></i>
         </button>
 
-        <button class="module-card" onclick="enterModule('Paz y Salvo', 'https://pazysalvogoyavier.netlify.app/')">
-          <div class="module-card-icon" style="background:#5baee0" aria-hidden="true">
+        <button class="module-card" id="btn-pazsalvo">
+          <div class="module-card-icon icon-pazsalvo" aria-hidden="true">
             <i class="fa fa-file-circle-check"></i>
           </div>
           <div class="module-card-body">
@@ -58,11 +59,11 @@
   <!-- ── VISTA: MÓDULO EN IFRAME ── -->
   <div id="view-module" class="hidden" role="main" aria-label="Módulo activo">
     <div class="module-topbar">
-      <button class="back-btn" onclick="goPortal()" aria-label="Volver al portal">
+      <button class="back-btn" id="btn-back" aria-label="Volver al portal">
         <i class="fa fa-chevron-left" aria-hidden="true"></i> Portal
       </button>
       <span class="topbar-title" id="module-label"></span>
-      <button class="newtab-btn" onclick="openNewTab()" title="Abrir en nueva pestaña" aria-label="Abrir en nueva pestaña">
+      <button class="newtab-btn" id="btn-newtab" title="Abrir en nueva pestaña" aria-label="Abrir en nueva pestaña">
         <i class="fa fa-arrow-up-right-from-square" aria-hidden="true"></i>
       </button>
     </div>
@@ -72,7 +73,7 @@
       <span>Cargando módulo…</span>
     </div>
 
-    <iframe id="module-frame" src="" allowfullscreen title="Módulo" onload="if(window.onFrameLoad)onFrameLoad()"></iframe>
+    <iframe id="module-frame" src="" title="Módulo" allow="fullscreen" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-downloads"></iframe>
   </div>
 
   <script src="app.js"></script>

@@ -1,0 +1,27 @@
+Options -Indexes
+ServerSignature Off
+
+<IfModule mod_headers.c>
+    # Evita que el portal sea embebido en otros sitios (anti-clickjacking)
+    Header always set X-Frame-Options "DENY"
+
+    # Evita MIME sniffing
+    Header always set X-Content-Type-Options "nosniff"
+
+    # No filtrar referrer a sitios externos
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Deshabilitar APIs del navegador que no se usan
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+
+    # Forzar HTTPS por 1 año
+    Header always set Strict-Transport-Security "max-age=31536000"
+
+    # Content Security Policy estricto
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com; font-src https://cdnjs.cloudflare.com; img-src 'self' data:; frame-src https://zaiko-pazsalvo.colegiogoyavier.edu.co https://colegiogoyavier.phidias.co; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none';"
+</IfModule>
+
+# Bloquear acceso a archivos sensibles
+<FilesMatch "\.(?:htaccess|htpasswd|ini|log|sh|sql|bak|env)$">
+    Require all denied
+</FilesMatch>
