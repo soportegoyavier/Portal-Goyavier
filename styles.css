@@ -132,6 +132,7 @@ body { background: var(--blue-deep); }
 }
 .icon-phidias  { background: #1575bc; }
 .icon-pazsalvo { background: #5baee0; }
+.icon-zaiko    { background: #2563eb; }
 
 .module-card-body  { flex: 1; }
 .module-card-title { color: #fff; font-size: 17px; font-weight: 700; margin-bottom: 4px; }

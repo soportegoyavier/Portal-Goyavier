@@ -18,7 +18,7 @@ ServerSignature Off
     Header always set Strict-Transport-Security "max-age=31536000"
 
     # Content Security Policy estricto
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com; font-src https://cdnjs.cloudflare.com; img-src 'self' data:; frame-src https://zaiko-pazsalvo.colegiogoyavier.edu.co https://colegiogoyavier.phidias.co; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none';"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://cdnjs.cloudflare.com; font-src https://cdnjs.cloudflare.com; img-src 'self' data:; frame-src https://zaiko-pazsalvo.colegiogoyavier.edu.co https://colegiogoyavier.phidias.co https://zaiko-inventario.colegiogoyavier.edu.co; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none';"
 </IfModule>
 
 # Bloquear acceso a archivos sensibles
