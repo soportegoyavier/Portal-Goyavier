@@ -9,7 +9,7 @@ let _currentUrl = '';
   const rt   = hash.get('refresh_token');
   if (!at) return;
   try { history.replaceState(null, '', window.location.pathname); } catch (_) {}
-  const pysSrc = 'https://pazysalvogoyavier.netlify.app/#access_token=' + encodeURIComponent(at)
+  const pysSrc = 'https://zaiko-pazsalvo.colegiogoyavier.edu.co/#access_token=' + encodeURIComponent(at)
     + (rt ? '&refresh_token=' + encodeURIComponent(rt) : '');
   function _relay() { enterModule('Paz y Salvo', pysSrc); }
   if (document.readyState === 'loading') {
@@ -19,7 +19,7 @@ let _currentUrl = '';
   }
 })();
 
-const _MODULOS_PERMITIDOS = ['pazysalvogoyavier.netlify.app', 'colegiogoyavier.phidias.co'];
+const _MODULOS_PERMITIDOS = ['zaiko-pazsalvo.colegiogoyavier.edu.co', 'colegiogoyavier.phidias.co'];
 
 function enterModule(name, url) {
   try {
@@ -58,4 +58,16 @@ document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && !document.getElementById('view-module').classList.contains('hidden')) {
     goPortal();
   }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('btn-phidias').addEventListener('click', function () {
+    window.open('https://colegiogoyavier.phidias.co/', '_blank', 'noopener,noreferrer');
+  });
+  document.getElementById('btn-pazsalvo').addEventListener('click', function () {
+    enterModule('Paz y Salvo', 'https://zaiko-pazsalvo.colegiogoyavier.edu.co/');
+  });
+  document.getElementById('btn-back').addEventListener('click', goPortal);
+  document.getElementById('btn-newtab').addEventListener('click', openNewTab);
+  document.getElementById('module-frame').addEventListener('load', onFrameLoad);
 });
