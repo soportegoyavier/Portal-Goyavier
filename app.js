@@ -70,6 +70,11 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('btn-zaiko').addEventListener('click', function () {
     enterModule('Zaiko Inventario', 'https://zaiko-inventario.colegiogoyavier.edu.co/');
   });
+  // Consulta pública de activos de Zaiko (QR / código de barras) — pestaña nueva: el portal bloquea la cámara
+  // para los iframes (Permissions-Policy camera=()), y en pestaña propia la página de Zaiko sí puede usarla.
+  document.getElementById('btn-escanear').addEventListener('click', function () {
+    window.open('https://zaiko-inventario.colegiogoyavier.edu.co/ficha.html', '_blank', 'noopener,noreferrer');
+  });
   document.getElementById('btn-back').addEventListener('click', goPortal);
   document.getElementById('btn-newtab').addEventListener('click', openNewTab);
   document.getElementById('module-frame').addEventListener('load', onFrameLoad);
