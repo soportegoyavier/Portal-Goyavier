@@ -35,6 +35,7 @@ function enterModule(name, url) {
   document.getElementById('module-loading').classList.remove('hidden');
   document.getElementById('module-frame').src = url;
   document.getElementById('view-portal').classList.add('hidden');
+  document.getElementById('btn-escanear').classList.add('hidden');
   document.getElementById('view-module').classList.remove('hidden');
 }
 
@@ -45,6 +46,7 @@ function onFrameLoad() {
 function goPortal() {
   document.getElementById('view-module').classList.add('hidden');
   document.getElementById('view-portal').classList.remove('hidden');
+  document.getElementById('btn-escanear').classList.remove('hidden');
   document.getElementById('module-frame').src = '';
   document.getElementById('module-loading').classList.add('hidden');
   _currentUrl = '';

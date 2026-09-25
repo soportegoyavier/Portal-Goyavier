@@ -14,6 +14,12 @@ ServerSignature Off
     # Deshabilitar APIs del navegador que no se usan
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
 
+    # index.html nunca en caché: decide qué versión (?v=) de styles.css / app.js se carga. Sin esto el hosting
+    # lo guardaba 7 días y el celular seguía con el CSS viejo tras una actualización (2026-09-25).
+    <FilesMatch "^index\.html$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+    </FilesMatch>
+
     # Forzar HTTPS por 1 año
     Header always set Strict-Transport-Security "max-age=31536000"
 
