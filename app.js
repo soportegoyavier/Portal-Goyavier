@@ -70,6 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('btn-zaiko').addEventListener('click', function () {
     enterModule('Zaiko Inventario', 'https://zaiko-inventario.colegiogoyavier.edu.co/');
   });
+  document.getElementById('btn-calendario').addEventListener('click', function () {
+    window.open('https://script.google.com/macros/s/AKfycbzSJQ5roOAdmXFiwN0t57hU8703cuS5w6_L_rLmwaa8T0KZ-fCg7HVVl4jsjaymDak8uA/exec', '_blank', 'noopener,noreferrer');
+  });
   document.getElementById('btn-back').addEventListener('click', goPortal);
   document.getElementById('btn-newtab').addEventListener('click', openNewTab);
   document.getElementById('module-frame').addEventListener('load', onFrameLoad);
