@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Portal Goyavier</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20261029b" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+
+  <!-- Consulta pública de un activo (QR o código de barras) sin iniciar sesión en Zaiko. Fuera de #view-portal
+       a propósito: si su CSS faltara, no entra al flex del portal ni lo descuadra. -->
+  <button class="scan-btn" id="btn-escanear" type="button" title="Consulta la etiqueta de un activo del inventario sin iniciar sesión">
+    <i class="fa fa-qrcode" aria-hidden="true"></i>
+    <span>Escanea tu código <small>sin entrar al sistema</small></span>
+  </button>
 
   <!-- ── VISTA: PORTAL DE INICIO ── -->
   <div id="view-portal" role="main">
@@ -100,9 +107,9 @@
       <span>Cargando módulo…</span>
     </div>
 
-    <iframe id="module-frame" src="" title="Módulo" allow="fullscreen" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-downloads allow-modals"></iframe>
+    <iframe id="module-frame" src="" title="Módulo" allow="fullscreen; camera" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-downloads allow-modals"></iframe>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=20261029b"></script>
 </body>
 </html>
