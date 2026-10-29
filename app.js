@@ -72,6 +72,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('btn-zaiko').addEventListener('click', function () {
     enterModule('Zaiko Inventario', 'https://zaiko-inventario.colegiogoyavier.edu.co/');
   });
+  // Calendario de espacios (Apps Script, público): pestaña nueva, no iframe. No va en _MODULOS_PERMITIDOS ni en
+  // frame-src porque no se embebe; si algún día se embebe hay que agregar script.google.com a ambos.
+  // URL con /a/macros/<dominio>/: con /macros/s/ un PC con varias cuentas de Google lo abría con la cuenta
+  // equivocada (/macros/u/2/...) y daba "No se pudo abrir el archivo". Con el dominio del colegio sí abre.
+  document.getElementById('btn-calendario').addEventListener('click', function () {
+    window.open('https://script.google.com/a/macros/colegiogoyavier.edu.co/s/AKfycbzSJQ5roOAdmXFiwN0t57hU8703cuS5w6_L_rLmwaa8T0KZ-fCg7HVVl4jsjaymDak8uA/exec', '_blank', 'noopener,noreferrer');
+  });
   // Consulta pública de activos de Zaiko (QR / código de barras) — pestaña nueva: el portal bloquea la cámara
   // para los iframes (Permissions-Policy camera=()), y en pestaña propia la página de Zaiko sí puede usarla.
   document.getElementById('btn-escanear').addEventListener('click', function () {

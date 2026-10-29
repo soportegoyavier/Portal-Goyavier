@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Portal Goyavier</title>
-  <link rel="stylesheet" href="styles.css?v=20260925b" />
+  <link rel="stylesheet" href="styles.css?v=20261029b" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
@@ -64,6 +64,17 @@
           <i class="fa fa-arrow-right module-card-arrow" aria-hidden="true"></i>
         </button>
 
+        <button class="module-card" id="btn-calendario">
+          <div class="module-card-icon icon-calendario" aria-hidden="true">
+            <i class="fa fa-calendar-days"></i>
+          </div>
+          <div class="module-card-body">
+            <div class="module-card-title">Calendario de espacios</div>
+            <div class="module-card-desc">Programación de eventos, solicitudes y avisos por correo</div>
+          </div>
+          <i class="fa fa-arrow-right module-card-arrow" aria-hidden="true"></i>
+        </button>
+
       </nav>
 
       <footer class="portal-footer">
@@ -96,9 +107,9 @@
       <span>Cargando módulo…</span>
     </div>
 
-    <iframe id="module-frame" src="" title="Módulo" allow="fullscreen" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-downloads allow-modals"></iframe>
+    <iframe id="module-frame" src="" title="Módulo" allow="fullscreen; camera" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-downloads allow-modals"></iframe>
   </div>
 
-  <script src="app.js?v=20260925b"></script>
+  <script src="app.js?v=20261029b"></script>
 </body>
 </html>
