@@ -12,7 +12,7 @@ ServerSignature Off
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
     # Deshabilitar APIs del navegador que no se usan
-    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(), usb=()"
+    Header always set Permissions-Policy 'geolocation=(), microphone=(), camera=(self "https://zaiko-inventario.colegiogoyavier.edu.co"), payment=(), usb=()'
 
     # index.html nunca en caché: decide qué versión (?v=) de styles.css / app.js se carga. Sin esto el hosting
     # lo guardaba 7 días y el celular seguía con el CSS viejo tras una actualización (2026-09-25).
